@@ -4,11 +4,13 @@ import "./App.css"
 function App() {
   const [option, setOption] = useState("")
   const [playerWoL, setPlayerWoL] = useState("")
+  const [show, setShow] = useState(false)
   const paper = "📃"
   const rock = "🪨"
   const scissors = "✂️"
 
   function picking(option) {
+    setShow(true)
     setOption(option)
     deciding(option)
   }
@@ -60,7 +62,8 @@ function App() {
     <>
       <div>
         <h1>Rock Paper Scissors game</h1>
-        <PckdOption />
+        {show === false && <p>Pick from on of the options below.</p>}
+        {show === true && <PckdOption />}
         <Pick />
       </div>
     </>
